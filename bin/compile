@@ -106,6 +106,7 @@ mkdir -p "$BUILD_DIR"/.profile.d
 cat <<EOF >"$BUILD_DIR"/.profile.d/rclone_config.sh
 #!/bin/sh
 cd "\$HOME"
+mkdir mega
 echo "-----> moving config file, rclone.conf"
 if [ -f "rclone.conf" ]; then
   mkdir -p .config/rclone
@@ -115,14 +116,14 @@ else
   echo "rclone.conf not exist"  | indent
 fi
 
-echo "-----> moving id_rsa"
-if [ -f "id_rsa" ]; then
-  mkdir -p .ssh
-  mv -f id_rsa .ssh/id_rsa
-  chmod 0700 .ssh/id_rsa
-  echo "-----> Done."
-else
-  echo "id_rsa not exist"  | indent
-fi
+# echo "-----> moving id_rsa"
+# if [ -f "id_rsa" ]; then
+#   mkdir -p .ssh
+#   mv -f id_rsa .ssh/id_rsa
+#   chmod 0700 .ssh/id_rsa
+#   echo "-----> Done."
+# else
+#   echo "id_rsa not exist"  | indent
+# fi
 
 
